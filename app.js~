@@ -1,0 +1,60 @@
+var modelBase = "ali/"
+var width = 800
+var height = 600
+function Actor(){
+	var $div = $("<div/>")
+	var $img = $('<img/>')
+	$div.append($img);
+	$div.addClass("actor")
+	$("#canvas").append($div)
+	this.load = function(model,callback){
+		var src = modelBase+model+".gif"
+		$img.attr('src', src).load(function(){
+   			callback()
+		})
+	}
+	this.x = 0
+	this.y = 0
+	
+	this.destroy = function(){
+		$div.remove()
+	}
+	this.top = function(t){
+		$div.css("top",t)
+		this.y = t
+	}
+	this.bottom = function(b){
+		$div.css("bottom",b)
+		this.y = height - b
+	}
+	this.left = function(l){
+		$div.css("left",l)
+		this.x = l
+	}
+	this.right = function(r){
+		$div.css("right",r)
+		this.x = width - r
+	}
+	this.move = function(dx,dy){
+		tx = this.x + (+dx)
+		ty = this.y + (+dy)
+		if(tx<0){
+			tx = 0
+		}else if(tx>width-$img.width()){
+			tx = width-$img.width()	
+		}
+		if(ty<0){
+			ty = 0
+		}else if(tx>height-$img.height()){
+			ty = height-$img.height()	
+		}
+		this.left(tx)
+		this.top(ty)
+	}
+}
+$(function(){
+	var actor1 = new Actor()
+	actor1.load("hide",function(){
+			
+	})
+})
