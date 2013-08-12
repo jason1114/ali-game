@@ -1,7 +1,11 @@
 <html>
 <head>
 	<title>Ali Game</title>
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'>
 	<style type="text/css">
+body{
+	background-image: url(images/ricepaper.png)
+}
 #canvas{
 	width:800px;
 	height:600px;
@@ -14,6 +18,100 @@
 	top:520px;
 	left:720px;
 }
+#actor2{
+	position:absolute;
+	top:0px;
+	left:150px;
+}
+#longxia{
+	position: absolute;;
+	top:-500px;
+	left:300px;
+}
+.hidden{
+	position: absolute;
+	display: none;
+}
+#freeze{
+	top:10px;
+	left:300px;
+}
+.mobile{
+	top:10px;
+	left:300px;
+}
+#composition{
+	top:10px;
+	left:0px;
+}
+#fu{
+	top:150px;
+	left:10px;
+}
+#dream{
+	top:200px;
+	left:100px;
+}
+#scared{
+	top:150px;
+	left:10px;
+}
+/*水平翻转*/
+.flipx {
+    -moz-transForm:scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);
+    /*IE*/
+    filter:FlipH;
+}
+a.choose {
+	position: absolute;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(219,87,5,1);
+    font-family: 'Yanone Kaffeesatz';
+    font-weight: 700;
+    font-size: 3em;
+    display: none;
+    padding: 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    margin: 0;
+	width: 160px;
+	text-align: center;
+	
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-ms-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
+}
+
+a.choose:active {
+    -webkit-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    position: absolute;
+    top: 102px;
+}
+.yes{
+	position: absolute;
+	top:100;
+	left: 200;
+}
+.no{
+	position: absolute;
+	top:100;
+	right: 200;
+}
+
+
+
 	</style>
 </head>
 <body>
@@ -21,6 +119,28 @@
 		<div id="actor1">
 			<a class="action" href="#"><img src="ali/hide.gif"></a>
 		</div>
+		<div id="actor2">
+			<a class="action" href="#"><img></a>
+		</div>
+		<div id="longxia">
+		</div>
+		<div id="freeze" class="hidden">
+			<img>
+		</div>
+		<div id="composition" class="hidden">
+			<img>
+		</div>
+		<div id="fu" class="hidden">
+			<img>
+		</div>
+		<div id="dream" class="hidden">
+			<img>
+		</div>
+		<div id="scared" class="hidden">
+			<img>
+		</div>
+		<a class="choose yes" href="#">Yes!</a>
+		<a class="choose no" href="#">No!</a>
 	</div>
 	
 	<!--<script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>-->
@@ -29,7 +149,7 @@
 	<script type="text/javascript" src="app.js" charset="utf-8"></script>
 	<object type="application/x-shockwave-flash" data="dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
 		<param name="movie" value="dewplayer.swf" />
-		<param name="flashvars" value="mp3=huan-qin.mp3&amp;autostart=1" />
+		<param name="flashvars" value="mp3=huan-qin.mp3&amp;autostart=1&amp;autoreplay=1" />
 		<param name="wmode" value="transparent" />
 	</object>
 </body>
