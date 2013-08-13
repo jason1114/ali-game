@@ -109,8 +109,69 @@ a.choose:active {
 	top:100;
 	right: 200;
 }
-
-
+#replay{
+	position: absolute;
+	top: 520;
+	left: 820;
+}
+#replay:active{
+	top:522px;
+}
+#girl{
+	position: absolute;
+	top:260px;
+	right: 0;
+}
+#love-stand{
+	position: absolute;
+	top:0;
+	left: 0;
+}
+#follow{
+	position: absolute;
+	top:520px;
+	left: 0;
+}
+#pai{
+	position: absolute;
+	top:520px;
+	right: 0;
+}
+#kiss{
+	position: absolute;
+	top:0;
+	right: 0;
+}
+#music-girl{
+	position: absolute;
+	top: 0;
+	left: 250px
+}
+#music{
+	position: absolute;
+	top: 0;
+	left: 530px;
+}
+#hang{
+	position: absolute;
+	top: 520px;
+	left: 250px;	
+}
+#hang-girl{
+	position: absolute;
+	top: 520px;
+	left: 500px;
+}
+#love-bubble{
+	position: absolute;
+	top: 260px;
+	left: 0;
+}
+#flower{
+	position: absolute;
+	top: 260px;
+	left: 360px;
+}
 
 	</style>
 </head>
@@ -121,6 +182,39 @@ a.choose:active {
 		</div>
 		<div id="actor2">
 			<a class="action" href="#"><img></a>
+		</div>
+		<div id="girl" class="hidden">
+			<a class="action" href="#"><img src="ali/li-girl.gif"></a>
+		</div>
+		<div id="music-girl" class="hidden">
+			<a class="action" href="#"><img src="ali/music-girl.gif"></a>
+		</div>
+		<div id="music" class="hidden">
+			<a class="action" href="#"><img src="ali/music.gif"></a>
+		</div>
+		<div id="hang" class="hidden">
+			<a class="action" href="#"><img src="ali/hang.gif"></a>
+		</div>
+		<div id="hang-girl" class="hidden">
+			<a class="action" href="#"><img src="ali/hang-girl.gif"></a>
+		</div>
+		<div id="love-bubble" class="hidden">
+			<a class="action" href="#"><img src="ali/love-bubble.gif"></a>
+		</div>
+		<div id="kiss" class="hidden">
+			<a class="action" href="#"><img src="ali/kiss.gif"></a>
+		</div>
+		<div id="pai" class="hidden">
+			<a class="action" href="#"><img src="ali/pai.gif"></a>
+		</div>
+		<div id="follow" class="hidden">
+			<a class="action" href="#"><img src="ali/follow.gif"></a>
+		</div>
+		<div id="love-stand" class="hidden">
+			<a class="action" href="#"><img src="ali/love-stand.gif"></a>
+		</div>
+		<div id="flower" class="hidden">
+			<a class="action" href="#"><img src="ali/flower.gif"></a>
 		</div>
 		<div id="longxia">
 		</div>
@@ -141,16 +235,19 @@ a.choose:active {
 		</div>
 		<a class="choose yes" href="#">Yes!</a>
 		<a class="choose no" href="#">No!</a>
+		<a class="choose" id="replay" href="">Replay!</a>
 	</div>
 	
 	<!--<script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>-->
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="jquery.qtip.min.js"></script>
 	<script type="text/javascript" src="app.js" charset="utf-8"></script>
-	<object type="application/x-shockwave-flash" data="dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
-		<param name="movie" value="dewplayer.swf" />
-		<param name="flashvars" value="mp3=huan-qin.mp3&amp;autostart=1&amp;autoreplay=1" />
-		<param name="wmode" value="transparent" />
-	</object>
+	<div id="player">
+		<object type="application/x-shockwave-flash" data="dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
+			<param name="movie" value="dewplayer.swf" />
+			<param name="flashvars" value="mp3=huan-qin.mp3&amp;autostart=1&amp;autoreplay=1" />
+			<param name="wmode" value="transparent" />
+		</object>
+	</div>
 </body>
 </html>

@@ -512,7 +512,7 @@ $(function(){
 			$("#actor1 .action").one("click",function(){
 				$("#actor1").qtip("destroy")
 				var $newImg = $("<img/>").attr("src","ali/intro10.gif").load(function(){
-					msgOption.content = "那你告诉我，你喜不喜欢我？"
+					msgOption.content = "既然这样，那你告诉我，你喜不喜欢我？"
 					msgOption.position.corner = {
 						tooltip:"topMiddle",
 						target:"bottomMiddle"
@@ -526,10 +526,8 @@ $(function(){
 		$("#actor1 img").replaceWith($newImg)
 	}
 	function cantChooseNo(){
-		$(".choose").css("display","block")
-		$(".yes").one("click",function(){
-			alert("ok you right")
-		})
+		$(".yes,.no").css("display","block")
+		$(".yes").one("click",afterChooseYes)
 		var i = 0
 		stateX = [200,50,550]
 		stateY = [500,250,10]
@@ -537,5 +535,127 @@ $(function(){
 			$(this).css("left",stateX[i]).css("top",stateY[i])
 			i = (++i) % 3
 		})
+	}
+	function afterChooseYes(){
+		$(".choose").fadeOut()
+		$("#actor1").qtip("destroy")
+		var $newImg = $("<img/>").addClass("flipx").attr("src","ali/rebirth.gif").load(function(){
+			$("#actor1").animate({left:0},{
+				duration:5000,
+				complete:function(){
+					var $newImg = $("<img/>").attr("src","ali/love.gif").load(function(){
+						msgOption.content = "那～今天是“七夕”，所以我决定换个背景！～"
+						msgOption.position.corner = {
+							tooltip:"topMiddle",
+							target:"bottomMiddle"
+						}
+						$("#actor1").qtip(msgOption)
+						$("#actor1 .action").one("click",changeBg)
+					})
+					$("#actor1 img").replaceWith($newImg)
+				}
+			})
+		})
+		$("#actor1 img").replaceWith($newImg)
+	}
+	function changeBg(){
+		$("body").css("background-image","url(images/qixi-side.jpg)")
+		$("#canvas").css("background-image","url(images/qixi-main.jpg)")
+		$("#actor1 .action").one("click",function(){
+			$("#actor1").qtip("destroy")
+			$("#player").load("angel-player.html",function(){
+				msgOption.content = "今天我为你点了一首歌～希望你喜欢～"
+				msgOption.position.corner = {
+					tooltip:"topMiddle",
+					target:"bottomMiddle"
+				}
+				$("#actor1").qtip(msgOption)
+				$("#actor1 .action").one("click",function(){
+					$("#actor1").qtip("destroy")
+					$("#girl").fadeIn({
+						complete:function(){
+							var $newImg = $("<img/>").attr("src","ali/shame.gif").load(function(){
+								$("#actor1").animate({left:670},{
+									duration:30000,
+									complete:meet
+								})
+							})
+							$("#actor1 img").replaceWith($newImg)
+						}
+					})
+				})
+			})
+		})
+	}
+	function meet(){
+		var pics = [
+			$("#flower"),
+			$("#kiss"),
+			$("#music"),
+			$("#music-girl"),
+			$("#love-stand"),
+			$("#love-bubble"),
+			$("#follow"),
+			$("#hang"),
+			$("#hang-girl"),
+			$("#pai")
+		]
+		function maker(pics,exit){
+			var $e = pics.pop()
+			if($e){
+				return (function(){
+					$e.fadeIn({
+						duration:3000,
+						complete:maker(pics,exit)
+					})
+				})
+			}
+			else{
+				return exit
+			}
+		}
+		$("#actor1,#girl").fadeOut({
+			complete:function(){
+				var $newImg = $("<img/>").attr("src","ali/hug.gif").load(function(){
+					$("#actor1").fadeIn({
+						complete:maker(pics,last)
+					})
+				})
+				$("#actor1 img").replaceWith($newImg)
+			}
+		})	
+	}
+	function last(){
+		msgOption.content = "七夕快乐！珍！"
+		msgOption.position.corner = {
+			tooltip:"bottomMiddle",
+			target:"topMiddle"
+		}
+		$("#flower").qtip(msgOption)
+		var words_raw = [
+			"对我来说，你是很重要的人。",
+			"所以，在这个特殊又平凡的日子里",
+			"我希望你能比别人更快乐，更幸福^_^",
+			"一定要开心啊～～～^_^"
+		]
+		var words = words_raw.reverse()
+		$("#flower .action").one("click",maker(words,finalFunc))
+		function finalFunc(){
+			$("#replay").fadeIn()
+		}
+		function maker(words,finalFunc){
+			var s = words.pop()
+			if(s){
+				return function(){
+					msgOption.content = s
+					$("#flower").qtip("destroy")
+					$("#flower").qtip(msgOption)
+					$("#flower .action").one("click",maker(words,finalFunc))
+				}
+			}
+			else{
+				return finalFunc
+			}
+		}
 	}
 })
