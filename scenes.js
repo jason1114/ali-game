@@ -508,7 +508,7 @@ var scenes = [
             main: 'http://ali-game.qiniudn.com/love.gif',
             duration: 'http://ali-game.qiniudn.com/rebirth.gif',
             side: 'http://ali-game.qiniudn.com/qixi-side.jpg',
-            bgMain: 'http://jason1114.github.io/ali-game2/images/xiangrikui.jpg'
+            bgMain: 'http://jason1114.github.io/backup/images/xiangrikui.jpg'
         },
         coordinate: [0, 400],
         duration: 5000,
