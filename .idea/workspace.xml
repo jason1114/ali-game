@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d9ebbf0-cd99-40e9-8df8-9c99c0e9e307" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scenes.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mp3/test1.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mp3/test2.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mp3/test3.mp3" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes.js" afterPath="$PROJECT_DIR$/scenes.js" />
     </list>
     <ignored path="ali-game.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,8 +57,8 @@
           <file leaf-file-name="scenes.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/scenes.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.76653695">
-                  <caret line="700" column="41" selection-start-line="700" selection-start-column="41" selection-end-line="700" selection-end-column="41" />
+                <state vertical-scroll-proportion="0.6206226">
+                  <caret line="717" column="2" selection-start-line="717" selection-start-column="2" selection-end-line="717" selection-end-column="2" />
                   <folding />
                 </state>
               </provider>
@@ -107,8 +101,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/scenes.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/scenes.js" />
       </list>
     </option>
   </component>
@@ -326,7 +320,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="180" column="24" selection-start-line="180" selection-start-column="24" selection-end-line="180" selection-end-column="24" />
           <folding>
+            <element signature="n#!!block;n#loadAll#0" expanded="false" />
+            <element signature="n#!!block;n#topRightMsg#0" expanded="false" />
             <element signature="n#!!block;n#bottomRightMsg#0" expanded="false" />
+            <element signature="n#!!block;n#topLeftMsg#0" expanded="false" />
+            <element signature="n#!!block;n#bottomLeftMsg#0" expanded="false" />
+            <element signature="n#!!block;n#bottomMiddleMsg#0" expanded="false" />
+            <element signature="n#!!block;n#leftMiddleMsg#0" expanded="false" />
+            <element signature="e#4349#22546#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -389,19 +390,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0740743">
-          <caret line="837" column="33" selection-start-line="837" selection-start-column="12" selection-end-line="837" selection-end-column="33" />
+        <state vertical-scroll-proportion="3.3333333">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
           <folding>
+            <element signature="n#!!block;n#loadAll#0" expanded="false" />
+            <element signature="n#!!block;n#topRightMsg#0" expanded="false" />
             <element signature="n#!!block;n#bottomRightMsg#0" expanded="false" />
+            <element signature="n#!!block;n#topLeftMsg#0" expanded="false" />
+            <element signature="n#!!block;n#bottomLeftMsg#0" expanded="false" />
+            <element signature="n#!!block;n#bottomMiddleMsg#0" expanded="false" />
+            <element signature="n#!!block;n#leftMiddleMsg#0" expanded="false" />
+            <element signature="e#4349#22546#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scenes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76653695">
-          <caret line="700" column="41" selection-start-line="700" selection-start-column="41" selection-end-line="700" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -409,6 +409,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.5961123">
           <caret line="111" column="1" selection-start-line="111" selection-start-column="1" selection-end-line="111" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6206226">
+          <caret line="717" column="2" selection-start-line="717" selection-start-column="2" selection-end-line="717" selection-end-column="2" />
           <folding />
         </state>
       </provider>
