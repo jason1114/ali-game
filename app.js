@@ -18,6 +18,200 @@ var msgOption = {
 	    name: 'cream' // Style it according to the preset 'cream' style
 	}
 }
+
+// 根据当前浏览器地址栏的hash，跳到指定场景进行播放
+var firstPlay = true;
+
+function play () {
+	var hash = window.location.hash;
+	if (!hash) {
+		hash = "#0";
+	}
+	var sceneNum = +hash.substr(1);
+	var scene = scenes[sceneNum];
+	if (!scene) {
+		return;
+	}
+	var $actor = $("#actor1");
+
+	// 播放过渡动画
+	if (firstPlay) {
+		firstPlay = false;
+		// 显示场景
+		$actor.css('left', scene.coordinate[0]);
+		$actor.css('top', scene.coordinate[1]);
+		beginPlay();
+	} else {
+		if (scene.images.duration) {
+			$actor.find('img').attr('src', scene.images.duration).one('load', function () {
+				animateIn();
+			});
+		} else {
+			animateIn();
+		}
+	}
+
+	function animateIn () {
+		$actor.animate({
+			"top": scene.coordinate[1],
+			"left": scene.coordinate[0],
+		},{
+			"duration":scene.duration,
+			"complete":function(){
+				beginPlay();
+			}
+		});
+	}
+
+	function beginPlay() {
+		$actor.find('img').attr('src', scene.images.main).one('load', function () {
+			scene.onComplete(scene.images, $actor, function () {
+				if (sceneNum < scenes.length - 1 ) {
+					window.location.hash = "#" + (++sceneNum);
+					play();
+				}
+				return false;
+			});
+		});
+	}
+}
+
+// 加载所有图片
+function loadAll () {
+	var urlList = [];
+	var promiseList = [];
+	var finished = 0;
+	var $progress = $('#progress span');
+
+	function updateProgress () {
+		finished ++ ;
+		$progress.text(Math.ceil(100*finished/urlList.length));
+		if (finished == urlList.length) {
+			$("#progress").hide();
+		}
+	}
+
+	function getLoadPromise (url) {
+		return new Promise(function (resolve, reject) {
+			var imgObj = new Image();
+			imgObj.onload = function () {
+				resolve();
+			}
+			imgObj.onerror = function () {
+				reject();
+			}
+			imgObj.src = url;
+		})
+			.catch(function () {
+				return getLoadPromise(url);
+			});
+	}
+
+	// 从每个场景中把待加载的图片取出来
+	for (var i in scenes) {
+		var scene = scenes[i];
+		if (scene.images) {
+			for (var imgName in scene.images) {
+				if (scene.images[imgName]) {
+					urlList.push (scene.images[imgName]);
+				}
+			}
+		}
+	}
+
+	// 去加载这些图片，并更新进度
+	for (var i in urlList) {
+		var url = urlList[i];
+		promiseList.push(
+			getLoadPromise(url).then(function() {
+				updateProgress();
+			})
+		);
+	}
+
+	return Promise.all(promiseList).then(function () {
+		console.log('加载成功');
+	});
+}
+
+function topRightMsg ($element, msg) {
+	msgOption.content = msg;
+	msgOption.position = {
+		corner: {
+			tooltip: "bottomLeft", // Use the corner...
+			target: "topRight" // ...and opposite corner
+		}
+	};
+	$('.qtip').remove();
+	$element.qtip(msgOption);
+}
+
+function bottomRightMsg ($element, msg) {
+	msgOption.content = msg;
+	msgOption.position = {
+		corner: {
+			tooltip: "topLeft", // Use the corner...
+			target: "bottomRight" // ...and opposite corner
+		}
+	};
+	$('.qtip').remove();
+	$element.qtip(msgOption)
+}
+
+function topLeftMsg ($element, msg) {
+	msgOption.content = msg;
+	msgOption.position = {
+		corner: {
+			tooltip: "bottomRight", // Use the corner...
+			target: "topLeft" // ...and opposite corner
+		}
+	};
+	$('.qtip').remove();
+	$element.qtip(msgOption)
+}
+
+function bottomLeftMsg ($element, msg) {
+	msgOption.content = msg;
+	msgOption.position = {
+		corner: {
+			tooltip: "topRight", // Use the corner...
+			target: "bottomLeft" // ...and opposite corner
+		}
+	};
+	$('.qtip').remove();
+	$element.qtip(msgOption)
+}
+
+function bottomMiddleMsg ($element, msg) {
+	msgOption.content = msg;
+	msgOption.position = {
+		corner: {
+			tooltip: "topMiddle", // Use the corner...
+			target: "bottomMiddle" // ...and opposite corner
+		}
+	};
+	$('.qtip').remove();
+	$element.qtip(msgOption)
+}
+
+function leftMiddleMsg ($element, msg) {
+	msgOption.content = msg;
+	msgOption.position = {
+		corner: {
+			tooltip: "rightMiddle", // Use the corner...
+			target: "leftMiddle" // ...and opposite corner
+		}
+	};
+	$('.qtip').remove();
+	$element.qtip(msgOption)
+}
+// 这里是全局入口
+$(function () {
+	loadAll().then(function () {
+		play();
+	})
+});
+/*
 $(function(){
 	$("#actor1 .action").one("click",function(){
 		var $newImg = $("<img/>").attr("src","http://ali-game.qiniudn.com/ride-left.gif").load(ride_to_mid)
@@ -658,4 +852,4 @@ $(function(){
 			}
 		}
 	}
-})
+})*/

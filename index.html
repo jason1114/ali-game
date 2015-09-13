@@ -2,6 +2,7 @@
 <head>
 	<title>Ali Game</title>
 	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'>
+	<meta charset="UTF-8">
 	<style type="text/css">
 body{
 	background-image: url(http://ali-game.qiniudn.com/ricepaper.png)
@@ -15,8 +16,9 @@ body{
 }
 #actor1{
 	position:absolute;
-	top:520px;
-	left:720px;
+	z-index: 200;
+	/*top:520px;*/
+	/*left:720px;*/
 }
 #actor2{
 	position:absolute;
@@ -55,6 +57,10 @@ body{
 #scared{
 	top:150px;
 	left:10px;
+}
+.photo {
+	border: 15px solid white;
+	transition: transform 5s;
 }
 /*水平翻转*/
 .flipx {
@@ -101,18 +107,18 @@ a.choose:active {
 }
 .yes{
 	position: absolute;
-	top:100;
-	left: 200;
+	top: 100px;
+	left: 200px;
 }
 .no{
 	position: absolute;
-	top:100;
-	right: 200;
+	top: 100px;
+	right: 200px;
 }
 #replay{
 	position: absolute;
-	top: 520;
-	left: 820;
+	top: 520px;
+	left: 820px;
 }
 #replay:active{
 	top:522px;
@@ -172,66 +178,25 @@ a.choose:active {
 	top: 260px;
 	left: 360px;
 }
+#progress {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-family: 'Yanone Kaffeesatz';
+	font-size: 50px;
+	color: #999;
+}
 
 	</style>
 </head>
 <body>
 	<div id="canvas">
+		<div id="progress">
+			<span>0</span>
+			%
+		</div>
 		<div id="actor1">
-			<a class="action" href="#"><img src="http://ali-game.qiniudn.com/hide.gif"></a>
-		</div>
-		<div id="actor2">
-			<a class="action" href="#"><img></a>
-		</div>
-		<div id="girl" class="hidden">
-			<a class="action" href="#"><img src="http://ali-game.qiniudn.com/li-girl.gif"></a>
-		</div>
-		<div id="music-girl" class="hidden">
-			<a class="action" href="#"><img src="http://ali-game.qiniudn.com/music-girl.gif"></a>
-		</div>
-		<div id="music" class="hidden">
-			<a class="action" href="#"><img src="http://ali-game.qiniudn.com/music.gif"></a>
-		</div>
-		<div id="hang" class="hidden">
-			<a class="action" href="#"><img src="http://ali-game.qiniudn.com/hang.gif"></a>
-		</div>
-		<div id="hang-girl" class="hidden">
-			<a class="action" href="#"><img src="http://ali-game.qiniudn.com/hang-girl.gif"></a>
-		</div>
-		<div id="love-bubble" class="hidden">
-			<a class="action" href="#"><img src="http://ali-game.qiniudn.com/love-bubble.gif"></a>
-		</div>
-		<div id="kiss" class="hidden">
-			<a class="action" href="#"><img src="http://ali-game.qiniudn.com/kiss.gif"></a>
-		</div>
-		<div id="pai" class="hidden">
-			<a class="action" href="#"><img src="http://ali-game.qiniudn.com/pai.gif"></a>
-		</div>
-		<div id="follow" class="hidden">
-			<a class="action" href="#"><img src="http://ali-game.qiniudn.com/follow.gif"></a>
-		</div>
-		<div id="love-stand" class="hidden">
-			<a class="action" href="#"><img src="http://ali-game.qiniudn.com/love-stand.gif"></a>
-		</div>
-		<div id="flower" class="hidden">
-			<a class="action" href="#"><img src="http://ali-game.qiniudn.com/flower.gif"></a>
-		</div>
-		<div id="longxia">
-		</div>
-		<div id="freeze" class="hidden">
-			<img>
-		</div>
-		<div id="composition" class="hidden">
-			<img>
-		</div>
-		<div id="fu" class="hidden">
-			<img>
-		</div>
-		<div id="dream" class="hidden">
-			<img>
-		</div>
-		<div id="scared" class="hidden">
-			<img>
+			<a class="action" href="javascript:"><img></a>
 		</div>
 		<a class="choose yes" href="#">Yes!</a>
 		<a class="choose no" href="#">No!</a>
@@ -239,8 +204,9 @@ a.choose:active {
 	</div>
 	
 	<!--<script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>-->
-	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript" src="jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="jquery.js" charset="utf-8"></script>
+	<script type="text/javascript" src="jquery.qtip.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="scenes.js" charset="utf-8"></script>
 	<script type="text/javascript" src="app.js" charset="utf-8"></script>
 	<div id="player">
 		<object type="application/x-shockwave-flash" data="dewplayer.swf" width="200" height="20" id="dewplayer" name="dewplayer">
